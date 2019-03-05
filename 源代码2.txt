@@ -1,0 +1,11 @@
+    I1 = imread('image A.jpg');
+    I2 = imread('image B.jpg');
+
+    cp = load('cpstruct.mat');
+    tform = cp2tform(cp.cpstruct.basePoints, cp.cpstruct.inputPoints, 'affine' );
+    lout = imtransform(I2,tform);
+    figure;
+    subplot(1,2,1);imshow(lout);
+    subplot(1,2,2);imshow(I1);
+    figure;
+    imshowpair(lout,I1)
